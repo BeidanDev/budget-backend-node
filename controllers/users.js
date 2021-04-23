@@ -1,4 +1,5 @@
 const { response, request } = require('express');
+const bcryptjs = require('bcryptjs');
 
 const User = require('../models/user');
 
@@ -26,6 +27,7 @@ const userPost = async(req = request, res = response) => {
     const { body } = req;
 
     try {
+        // Check if the mail exists
         const existsEmail = await User.findOne({
             where: {
                 email: body.email
@@ -38,6 +40,11 @@ const userPost = async(req = request, res = response) => {
             });
         }
 
+        // Encrypt password
+        const salt = bcryptjs.genSaltSync();
+        body.password = bcryptjs.hashSync(body.password, salt);
+
+        // Save in DB
         const user = await User.create(body);
 
         res.json(user);
