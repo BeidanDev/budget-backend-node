@@ -27,19 +27,6 @@ const userPost = async(req = request, res = response) => {
     const { body } = req;
 
     try {
-        // Check if the mail exists
-        const existsEmail = await User.findOne({
-            where: {
-                email: body.email
-            }
-        });
-
-        if(existsEmail) {
-            return res.status(400).json({
-                msg: 'There is already a user with the email ' + body.email
-            });
-        }
-
         // Encrypt password
         const salt = bcryptjs.genSaltSync();
         body.password = bcryptjs.hashSync(body.password, salt);
