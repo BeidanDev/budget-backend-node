@@ -17,6 +17,6 @@ router.post('/',[
     validateFields
 ], userPost);
 router.put('/:id', userPut);
-router.delete('/', userDelete);
+router.delete('/:id', userDelete);
 
 module.exports = router;

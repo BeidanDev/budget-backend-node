@@ -9,6 +9,15 @@ const existsEmail = async(email = '') => {
     }
 }
 
+// const existsUserForId = async(id) => {
+//     const existsUser = await User.findByPk(id);
+
+//     if(!existsUser) {
+//         throw new Error(`There is no user with the id ${ id }`);
+//     }
+// }
+
 module.exports = {
-    existsEmail
+    existsEmail,
+    // existsUserForId
 }
