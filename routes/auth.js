@@ -7,18 +7,26 @@ const { validateJWT } = require('../middlewares/validate-jwt');
 
 const router = Router();
 
-router.post('/new', [
-    check('name', 'Name is required').not().isEmpty(),
-    check('email', 'Email is required').isEmail(),
-    check('password', 'The password must be 6 characters').isLength({ min: 6 }),
-    validateFields
-], createUser);
+router.post(
+    '/new',
+    [
+        check('name', 'Name is required').not().isEmpty(),
+        check('email', 'Email is required').isEmail(),
+        check('password', 'The password must be 6 characters').isLength({ min: 6 }),
+        validateFields
+    ],
+    createUser
+);
 
-router.post('/', [
-    check('email', 'Email is required').isEmail(),
-    check('password', 'The password must be 6 characters').isLength({ min: 6 }),
-    validateFields
-], loginUser);
+router.post(
+    '/',
+    [
+        check('email', 'Email is required').isEmail(),
+        check('password', 'The password must be 6 characters').isLength({ min: 6 }),
+        validateFields
+    ],
+    loginUser
+);
 
 router.get('/renew', validateJWT, revalidateToken);
 
