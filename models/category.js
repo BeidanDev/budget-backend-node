@@ -3,25 +3,10 @@ const { DataTypes } = require('sequelize');
 const db = require('../db/connection');
 const User = require('./user');
 
-const Operation = db.define('Operation', {
-    concept: {
+const Category = db.define('Category', {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    amount: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-    },
-    date: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    type: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    category_id: {
-        type: DataTypes.STRING
     },
     state: {
         type: DataTypes.BOOLEAN,
@@ -37,4 +22,4 @@ const Operation = db.define('Operation', {
     }
 });
 
-module.exports = Operation;
+module.exports = Category;

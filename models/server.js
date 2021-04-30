@@ -10,6 +10,7 @@ class Server {
 
         this.authPath = '/api/auth';
         this.operationPath = '/api/operation';
+        this.categoryPath = '/api/category';
 
         // Database connection
         this.dbConnection();
@@ -44,6 +45,7 @@ class Server {
     routes() {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.operationPath, require('../routes/operation'));
+        this.app.use(this.categoryPath, require('../routes/category'));
     }
 
     listen() {
