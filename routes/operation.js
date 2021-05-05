@@ -1,7 +1,14 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { listOperations, createOperation, updateOperation, removeOperation } = require('../controllers/operation');
+const { 
+    listOperations,
+    listOperationsMoneyInflow,
+    createOperation,
+    updateOperation,
+    removeOperation,
+    listOperationsMoneyOutflow
+} = require('../controllers/operation');
 const { isDate } = require('../helpers/isDate');
 const { validateFields } = require('../middlewares/validate-fields');
 const { validateJWT } = require('../middlewares/validate-jwt');
@@ -11,6 +18,10 @@ const router = Router();
 router.use(validateJWT);
 
 router.get('/', listOperations);
+
+router.get('/operations-money-inflow', listOperationsMoneyInflow);
+
+router.get('/operations-money-outflow', listOperationsMoneyOutflow);
 
 router.post(
     '/',

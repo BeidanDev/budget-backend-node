@@ -20,6 +20,50 @@ const listOperations = async(req = request, res = response) => {
     }
 }
 
+const listOperationsMoneyInflow = async(req = request, res = response) => {
+    try {
+        const operations_money_inflow = await Operation.findAll({
+            where: {
+                type: 'Ingreso'
+            }
+        });
+
+        res.json({
+            ok: true,
+            msg: 'getOperationsMoneyInflow',
+            operations_money_inflow
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Talk to administrator'
+        });
+    }
+}
+
+const listOperationsMoneyOutflow = async(req = request, res = response) => {
+    try {
+        const operations_money_outflow = await Operation.findAll({
+            where: {
+                type: 'Egreso'
+            }
+        });
+
+        res.json({
+            ok: true,
+            msg: 'getOperationsMoneyOutflow',
+            operations_money_outflow
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Talk to administrator'
+        });
+    }
+}
+
 const createOperation = async(req = request, res = response) => {
     const { body } = req;
 
@@ -100,6 +144,8 @@ const removeOperation = async(req = request, res = response) => {
 
 module.exports = {
     listOperations,
+    listOperationsMoneyInflow,
+    listOperationsMoneyOutflow,
     createOperation,
     updateOperation,
     removeOperation
