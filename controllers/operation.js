@@ -20,9 +20,9 @@ const listOperations = async(req = request, res = response) => {
     }
 }
 
-const listOperationsMoneyInflow = async(req = request, res = response) => {
+const listOperationMoneyInflow = async(req = request, res = response) => {
     try {
-        const operations_money_inflow = await Operation.findAll({
+        const operation_money_inflow = await Operation.findAll({
             where: {
                 type: 'Ingreso'
             }
@@ -30,8 +30,8 @@ const listOperationsMoneyInflow = async(req = request, res = response) => {
 
         res.json({
             ok: true,
-            msg: 'getOperationsMoneyInflow',
-            operations_money_inflow
+            msg: 'getOperationMoneyInflow',
+            operation_money_inflow
         });
     } catch (error) {
         console.log(error);
@@ -42,9 +42,9 @@ const listOperationsMoneyInflow = async(req = request, res = response) => {
     }
 }
 
-const listOperationsMoneyOutflow = async(req = request, res = response) => {
+const listOperationMoneyOutflow = async(req = request, res = response) => {
     try {
-        const operations_money_outflow = await Operation.findAll({
+        const operation_money_outflow = await Operation.findAll({
             where: {
                 type: 'Egreso'
             }
@@ -52,8 +52,8 @@ const listOperationsMoneyOutflow = async(req = request, res = response) => {
 
         res.json({
             ok: true,
-            msg: 'getOperationsMoneyOutflow',
-            operations_money_outflow
+            msg: 'getOperationMoneyOutflow',
+            operation_money_outflow
         });
     } catch (error) {
         console.log(error);
@@ -144,8 +144,8 @@ const removeOperation = async(req = request, res = response) => {
 
 module.exports = {
     listOperations,
-    listOperationsMoneyInflow,
-    listOperationsMoneyOutflow,
+    listOperationMoneyInflow,
+    listOperationMoneyOutflow,
     createOperation,
     updateOperation,
     removeOperation
