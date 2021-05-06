@@ -4,7 +4,12 @@ const Operation = require('../models/operation');
 
 const listOperations = async(req = request, res = response) => {
     try {
-        const operations = await Operation.findAll();
+        const operations = await Operation.findAll({
+            where: {
+                type: 'Ingreso',
+                state: 1
+            }
+        });
 
         res.json({
             ok: true,
