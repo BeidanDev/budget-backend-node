@@ -9,7 +9,7 @@ const Operation = db.define('Operation', {
         allowNull: false
     },
     amount: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     date: {
