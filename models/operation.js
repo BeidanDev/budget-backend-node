@@ -13,7 +13,7 @@ const Operation = db.define('Operation', {
         allowNull: false
     },
     date: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
     },
     type: {
