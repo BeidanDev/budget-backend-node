@@ -4,7 +4,11 @@ const Category = require('../models/category');
 
 const listCategories = async(req = request, res = response) => {
     try {
-        const categories = await Category.findAll();
+        const categories = await Category.findAll({
+            where: {
+                state: 1
+            }
+        });
 
         res.json({
             ok: true,
