@@ -21,7 +21,7 @@ const Operation = db.define('Operation', {
         allowNull: false
     },
     category_id: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
     },
     state: {
         type: DataTypes.BOOLEAN,
