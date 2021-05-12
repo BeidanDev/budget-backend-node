@@ -6,10 +6,11 @@ const listOperations = async(req = request, res = response) => {
     try {
         const operations = await Operation.findAll({
             where: {
-                state: 1
+                state: 1,
+                user_id: req.uid
             }
         });
-
+        // console.log(req.uid);
         res.json({
             ok: true,
             msg: 'getOperations',

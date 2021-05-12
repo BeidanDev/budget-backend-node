@@ -6,7 +6,8 @@ const listCategories = async(req = request, res = response) => {
     try {
         const categories = await Category.findAll({
             where: {
-                state: 1
+                state: 1,
+                user_id: req.uid
             }
         });
 
