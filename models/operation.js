@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 
 const db = require('../db/connection');
 const User = require('./user');
+const Category = require('./category');
 
 const Operation = db.define('Operation', {
     concept: {
@@ -21,7 +22,11 @@ const Operation = db.define('Operation', {
         allowNull: false
     },
     category_id: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        references: {
+            model: Category,
+            key: 'name'
+        }
     },
     state: {
         type: DataTypes.BOOLEAN,
