@@ -7,8 +7,11 @@ const listOperations = async(req = request, res = response) => {
         const operations = await Operation.findAll({
             where: {
                 state: 1,
-                user_id: req.uid
-            }
+                user_id: req.uid,
+            },
+            order: [
+                ['id', 'DESC']
+            ]
         });
         // console.log(req.uid);
         res.json({

@@ -8,7 +8,10 @@ const listCategories = async(req = request, res = response) => {
             where: {
                 state: 1,
                 user_id: req.uid
-            }
+            },
+            order: [
+                ['id', 'DESC']
+            ]
         });
 
         res.json({
