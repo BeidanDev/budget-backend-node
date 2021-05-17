@@ -13,7 +13,7 @@ const listOperations = async(req = request, res = response) => {
                 ['id', 'DESC']
             ]
         });
-        // console.log(req.uid);
+
         res.json({
             ok: true,
             msg: 'getOperations',
